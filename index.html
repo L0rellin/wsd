@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свадебное приглашение</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Приветственный блок -->
+        <section id="welcome" class="section welcome-section">
+            <h1 class="welcome-title">Мы ждём вас!</h1>
+            <div class="couple-photos">
+                <div class="photo-wrapper">
+                    <img src="images/placeholder1.jpg" alt="Фото жениха" class="photo">
+                    <div class="name-label groom-label">Слава</div>
+                    <div class="arrow arrow-groom"></div>
+                </div>
+                <div class="photo-wrapper">
+                    <img src="images/placeholder2.jpg" alt="Фото невесты" class="photo">
+                    <div class="name-label bride-label">Катя</div>
+                    <div class="arrow arrow-bride"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок с датой -->
+        <section id="date" class="section date-section">
+            <div class="calendar">
+                <div class="calendar-date">15</div>
+                <div class="calendar-month">мая</div>
+                <div class="calendar-year">2026</div>
+            </div>
+        </section>
+
+        <!-- Блок "Где?" -->
+        <section id="location" class="section location-section">
+            <h2>Где пройдёт торжество?</h2>
+            
+            <div class="venue">
+                <h3>Торжественная регистрация</h3>
+                <p>Архитектурный комплекс "Белый Зал", ул. Центральная, 10</p>
+                <div id="map-registration" class="map"></div>
+            </div>
+            
+            <div class="venue">
+                <h3>Праздничный банкет</h3>
+                <p>Ресторан "Сады Эдема", Парковая аллея, 5</p>
+                <div id="map-banquet" class="map"></div>
+            </div>
+        </section>
+
+        <!-- Блок плана дня -->
+        <section id="timeline" class="section timeline-section">
+            <h2>План дня</h2>
+            <div class="timeline-items">
+                <div class="timeline-item">
+                    <span class="time">14:00</span>
+                    <span class="event">Регистрация</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">14:30</span>
+                    <span class="event">Фотосессия</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">16:00</span>
+                    <span class="event">Банкет</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">18:00</span>
+                    <span class="event">Танцы и развлечения</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок дресс-кода -->
+        <section id="dress-code" class="section dress-code-section">
+            <h2>Дресс-код</h2>
+            <p>Поддержите атмосферу праздника, выбрав наряд в наших любимых оттенках</p>
+            <img src="images/dress-code.jpg" alt="Примеры нарядов и цветов" class="dress-code-image">
+        </section>
+
+        <!-- Блок деталей -->
+        <section id="details" class="section details-section">
+            <h2>Детали</h2>
+            <div class="contact-info">
+                <p>Контакты: +7 (XXX) XXX-XX-XX | wedding@example.com</p>
+                <p>Парковка доступна у обоих venues. Трансфер от регистрации до банкета будет организован.</p>
+            </div>
+        </section>
+
+        <!-- Заключительный блок -->
+        <section id="farewell" class="section farewell-section">
+            <h2>До встречи на нашем празднике!</h2>
+            <p>С любовью, [Имена молодожёнов]</p>
+        </section>
+
+        <!-- Таймер обратного отсчёта -->
+        <section id="countdown" class="section countdown-section">
+            <h2>До свадьбы осталось:</h2>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span id="days" class="count">00</span>
+                    <span class="label">Дней</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours" class="count">00</span>
+                    <span class="label">Часов</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes" class="count">00</span>
+                    <span class="label">Минут</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds" class="count">00</span>
+                    <span class="label">Секунд</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Подключение API Яндекс.Карт -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

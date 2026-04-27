@@ -1,0 +1,329 @@
+/* Общие стили */
+:root {
+    --primary-white: #ffffff;
+    --accent-beige: #f8f3eb;
+    --accent-pink: #f4e6e7;
+    --accent-blue: #e6f0f4;
+    --accent-cream: #fdf9f0;
+    --text-dark: #333333;
+    --border-light: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url('../images/bg.jpg'); /* Путь к вашему узору (сердечки, виньетки, бумага и т.п.) */
+    background-attachment: fixed; /* Фон остаётся на месте при прокрутке (эффект параллакса) */
+    background: size 80%;; /* Размер одного фрагмента узора — можно подстроить под дизайн */
+     /* Центрирование изображения */
+    background-position: center center;
+    background-repeat:repeat; /* Повторяет узор по всему экрану */
+    
+    
+    background-color: #f8f3eb; /* Фоновый цвет «под» узором — бежевый, как в вашей теме */
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.container {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    padding: 80px 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Приветственный блок */
+.welcome-section {
+    background: linear-gradient(135deg, var(--accent-beige), var(--accent-cream));
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 60px 20px;
+}
+
+.welcome-title {
+    font-family: 'Lora', serif;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.couple-photos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.photo {
+    width: 200px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Календарь */
+.date-section {
+    background: var(--primary-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    border: 2px solid var(--border-light);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.calendar {
+    text-align: center;
+    font-family: 'Lora', serif;
+}
+
+.calendar-date {
+    font-size: 5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.calendar-month {
+    font-size: 2rem;
+    color: var(--accent-pink);
+    margin: 10px 0;
+}
+
+.calendar-year {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+}
+
+/* Места проведения */
+.location-section {
+    background: var(--accent-cream);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.location-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.venue {
+    background: var(--primary-white);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.venue h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.venue p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.map {
+    height: 300px;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    margin-top: 15px;
+}
+
+/* План дня */
+.timeline-section {
+    background: var(--accent-beige);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.timeline-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+.timeline-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: var(--primary-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    font-size: 1.2rem;
+}
+
+.time {
+    font-weight: 600;
+    color: var(--accent-pink);
+}
+
+.event {
+    color: var(--text-dark);
+}
+
+/* Дресс-код */
+.dress-code-section {
+    background: var(--accent-pink);
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 60px 20px;
+}
+
+.dress-code-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.dress-code-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.dress-code-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Детали */
+.details-section {
+    background: var(--accent-blue);
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 60px 20px;
+}
+
+.details-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.contact-info {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Заключительный блок */
+.farewell-section {
+    background: linear-gradient(135deg, var(--accent-beige), var(--accent-pink));
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 80px 20px;
+}
+
+.farewell-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.farewell-section p {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--text-dark);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 15px;
+    }
+    
+    .welcome-title {
+        font-size: 2.5rem;
+    }
+    
+    .calendar-date {
+        font-size: 4rem;
+    }
+    
+    .location-section h2,
+    .timeline-section h2,
+    .dress-code-section h2,
+    .details-section h2,
+    .farewell-section h2 {
+        font-size: 2rem;
+    }
+    
+    .photo {
+        width: 150px;
+        height: 220px;
+    }
+    
+    .timeline-item {
+        font-size: 1rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .time {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 2rem;
+    }
+    
+    .calendar-date {
+        font-size: 3rem;
+    }
+    
+    .calendar-month {
+        font-size: 1.5rem;
+    }
+    
+    .calendar-year {
+        font-size: 1.2rem;
+    }
+    
+    .couple-photos {
+        flex-direction: column;
+        align-items: center;
+    }
+}

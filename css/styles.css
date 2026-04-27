@@ -1,0 +1,499 @@
+/* Общие стили */
+:root {
+    --primary-white: #ffffff;
+    --accent-beige: #f8f3eb;
+    --accent-pink: #f4e6e7;
+    --accent-blue: #e6f0f4;
+    --accent-cream: #fdf9f0;
+    --text-dark: #333333;
+    --border-light: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url('../images/bg.jpg'); /* Путь к вашему узору (сердечки, виньетки, бумага и т.п.) */
+    background-attachment: fixed; /* Фон остаётся на месте при прокрутке (эффект параллакса) */
+    background: size 80%;; /* Размер одного фрагмента узора — можно подстроить под дизайн */
+     /* Центрирование изображения */
+    background-position: center center;
+    background-repeat:repeat; /* Повторяет узор по всему экрану */
+    
+    
+    background-color: #f8f3eb; /* Фоновый цвет «под» узором — бежевый, как в вашей теме */
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    padding: 80px 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Приветственный блок */
+.welcome-section {
+    background: linear-gradient(135deg, var(--accent-beige), var(--accent-cream));
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 60px 20px;
+}
+
+.welcome-title {
+    font-family: 'Lora', serif;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.couple-photos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.photo {
+    width: 200px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: var(--primary-white);
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    display: block;
+    position: relative;
+    transform-origin: center;
+    z-index: 1;
+}
+
+.photo::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 15px;
+    width: 60px;
+    height: 10px;
+    background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: rotate(15deg);
+    z-index: 2;
+}
+
+.couple-photos img:first-child {
+    transform: rotate(-4deg);
+    margin-top: 20px;
+}
+
+.couple-photos img:last-child {
+    transform: rotate(4deg);
+    margin-top: 20px;
+}
+
+.couple-photos img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.couple-photos img:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.photo-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.name-label {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 1.2rem;
+    position: absolute;
+    z-index: 2;
+    background: rgba(255,255,255,0.95);
+    padding: 8px 15px;
+    border-radius: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    backdrop-filter: blur(8px);
+    font-weight: bold;
+}
+
+.groom-label {
+    top: 40px;
+    left: 210px;
+    transform: rotate(10deg);
+    color: #d32f2f;
+}
+
+.bride-label {
+    top: -20px;
+    right: -100px;
+    transform: rotate(12deg);
+    color: #c2185b;
+}
+
+.arrow {
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    z-index: 2;
+    transform-origin: left center;
+}
+
+.arrow::before {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: -3px;
+    width: 8px;
+    height: 8px;
+    background: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.arrow-groom {
+    top: 60px;
+    left: 190px;
+    width: 50px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(35deg);
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
+}
+
+.arrow-bride {
+    top: -35px;
+    right: -45px;
+    transform: rotate(-40deg);
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
+}
+
+.photo::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 15px;
+    width: 60px;
+    height: 10px;
+    background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: rotate(15deg);
+    z-index: 2;
+}
+
+/* Календарь */
+.date-section {
+    background: var(--primary-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    border: 2px solid var(--border-light);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.calendar {
+    text-align: center;
+    font-family: 'Lora', serif;
+}
+
+.calendar-date {
+    font-size: 5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.calendar-month {
+    font-size: 2rem;
+    color: var(--accent-pink);
+    margin: 10px 0;
+}
+
+.calendar-year {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+}
+
+/* Места проведения */
+.location-section {
+    background: var(--accent-cream);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.location-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.venue {
+    background: var(--primary-white);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.venue h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.venue p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.map {
+    height: 300px;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    margin-top: 15px;
+}
+
+/* План дня */
+.timeline-section {
+    background: var(--accent-beige);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.timeline-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+.timeline-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: var(--primary-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    font-size: 1.2rem;
+}
+
+.time {
+    font-weight: 600;
+    color: var(--accent-pink);
+}
+
+.event {
+    color: var(--text-dark);
+}
+
+/* Дресс-код */
+.dress-code-section {
+    background: var(--accent-pink);
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 60px 20px;
+}
+
+.dress-code-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.dress-code-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.dress-code-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Детали */
+.details-section {
+    background: var(--accent-blue);
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 60px 20px;
+}
+
+.details-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.contact-info {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Заключительный блок */
+.farewell-section {
+    background: linear-gradient(135deg, var(--accent-beige), var(--accent-pink));
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 80px 20px;
+}
+
+.farewell-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.farewell-section p {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--text-dark);
+}
+
+/* Таймер обратного отсчёта */
+.countdown-section {
+    background: var(--primary-white);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.countdown-section h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--accent-cream);
+    padding: 20px 15px;
+    border-radius: 15px;
+    min-width: 100px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.count {
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-family: 'Lora', serif;
+}
+
+.label {
+    font-size: 1rem;
+    color: var(--accent-pink);
+    margin-top: 5px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 15px;
+    }
+    
+    .welcome-title {
+        font-size: 2.5rem;
+    }
+    
+    .calendar-date {
+        font-size: 4rem;
+    }
+    
+    .location-section h2,
+    .timeline-section h2,
+    .dress-code-section h2,
+    .details-section h2,
+    .farewell-section h2 {
+        font-size: 2rem;
+    }
+    
+    .photo {
+        width: 150px;
+        height: 220px;
+    }
+    
+    .timeline-item {
+        font-size: 1rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .time {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 2rem;
+    }
+    
+    .calendar-date {
+        font-size: 3rem;
+    }
+    
+    .calendar-month {
+        font-size: 1.5rem;
+    }
+    
+    .calendar-year {
+        font-size: 1.2rem;
+    }
+    
+    .couple-photos {
+        flex-direction: column;
+        align-items: center;
+    }
+}
