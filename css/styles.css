@@ -74,8 +74,8 @@ body {
 }
 
 .photo {
-    width: 200px;
-    height: 260px;
+    width: 160px;
+    height: 220px;
     object-fit: cover;
     border-radius: 10px;
     background: var(--primary-white);
@@ -140,15 +140,15 @@ body {
 }
 
 .groom-label {
-    top: 40px;
-    left: 210px;
+    top: 50px;
+    left: -150px;
     transform: rotate(10deg);
     color: #d32f2f;
 }
 
 .bride-label {
-    top: -20px;
-    right: -100px;
+    top: -60px;
+    right: -130px;
     transform: rotate(12deg);
     color: #c2185b;
 }
@@ -175,19 +175,19 @@ body {
 }
 
 .arrow-groom {
-    top: 60px;
-    left: 190px;
-    width: 50px;
+    top: 45px;
+    left: -90px;
+    width: 100px;
     height: 2px;
     background: repeating-linear-gradient(to right, currentColor 0, currentColor 3px, transparent 3px, transparent 6px);
-    transform: rotate(35deg);
+    transform: rotate(30deg);
     filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
 }
 
 .arrow-bride {
-    top: -35px;
-    right: -45px;
-    transform: rotate(-40deg);
+    top: -55px;
+    right: -90px;
+    transform: rotate(-35deg);
     filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
 }
 
