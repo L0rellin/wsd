@@ -80,7 +80,7 @@ body {
     border-radius: 10px;
     background: var(--primary-white);
     padding: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.8);
     display: block;
     position: relative;
     transform-origin: center;
@@ -90,15 +90,16 @@ body {
 .photo::before {
     content: '';
     position: absolute;
-    top: -5px;
-    left: 15px;
-    width: 60px;
-    height: 10px;
-    background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transform: rotate(15deg);
+    top: -8px;
+    left: 20px;
+    width: 70px;
+    height: 15px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(200,200,200,0.8));
+    border-radius: 7px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.5);
+    transform: rotate(12deg);
     z-index: 2;
+    border: 1px solid rgba(150,150,150,0.5);
 }
 
 .couple-photos img:first-child {
@@ -154,9 +155,9 @@ body {
 
 .arrow {
     position: absolute;
-    width: 20px;
+    width: 50px;
     height: 2px;
-    background: currentColor;
+    background: repeating-linear-gradient(to right, currentColor 0, currentColor 3px, transparent 3px, transparent 6px);
     z-index: 2;
     transform-origin: left center;
 }
@@ -164,13 +165,13 @@ body {
 .arrow::before {
     content: '';
     position: absolute;
-    right: -3px;
-    top: -3px;
-    width: 8px;
-    height: 8px;
-    background: currentColor;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    right: -5px;
+    top: -2px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid currentColor;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
 }
 
 .arrow-groom {
@@ -178,7 +179,7 @@ body {
     left: 190px;
     width: 50px;
     height: 2px;
-    background: currentColor;
+    background: repeating-linear-gradient(to right, currentColor 0, currentColor 3px, transparent 3px, transparent 6px);
     transform: rotate(35deg);
     filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
 }
@@ -193,15 +194,16 @@ body {
 .photo::before {
     content: '';
     position: absolute;
-    top: -5px;
-    left: 15px;
-    width: 60px;
-    height: 10px;
-    background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transform: rotate(15deg);
+    top: -8px;
+    left: 20px;
+    width: 70px;
+    height: 15px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(200,200,200,0.8));
+    border-radius: 7px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.5);
+    transform: rotate(12deg);
     z-index: 2;
+    border: 1px solid rgba(150,150,150,0.5);
 }
 
 /* Календарь */
