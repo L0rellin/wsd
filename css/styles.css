@@ -92,31 +92,33 @@ body {
 .photo::before {
     content: '';
     position: absolute;
-    top: -12px;
-    left: -8px;
-    width: 80px;
-    height: 28px;
-    background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(240,240,240,0.9) 50%, rgba(255,255,255,0.9) 100%);
-    border-radius: 50% 50% 60% 40%;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.18), inset -1px 1px 3px rgba(255,255,255,0.8);
-    transform: rotate(-25deg);
+    top: -15px;
+    left: 5px;
+    width: 70px;
+    height: 35px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(245,245,245,0.88) 100%);
+    border-radius: 2px 2px 15px 15px / 2px 2px 8px 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2), inset 0 1px 2px rgba(255,255,255,0.9);
+    transform: rotate(-18deg) skewX(-5deg);
     z-index: 20;
-    border: 0.5px solid rgba(180,180,180,0.3);
+    border: 1px solid rgba(150,150,150,0.4);
+    opacity: 0.85;
 }
 
 .photo::after {
     content: '';
     position: absolute;
-    bottom: -12px;
-    right: -8px;
-    width: 80px;
-    height: 28px;
-    background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(240,240,240,0.9) 50%, rgba(255,255,255,0.9) 100%);
-    border-radius: 40% 60% 50% 50%;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.18), inset -1px 1px 3px rgba(255,255,255,0.8);
-    transform: rotate(-25deg);
+    bottom: -15px;
+    right: 5px;
+    width: 70px;
+    height: 35px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(245,245,245,0.88) 100%);
+    border-radius: 15px 15px 2px 2px / 8px 8px 2px 2px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2), inset 0 1px 2px rgba(255,255,255,0.9);
+    transform: rotate(-18deg) skewX(-5deg);
     z-index: 20;
-    border: 0.5px solid rgba(180,180,180,0.3);
+    border: 1px solid rgba(150,150,150,0.4);
+    opacity: 0.85;
 }
 
 .couple-photos img:first-child {
