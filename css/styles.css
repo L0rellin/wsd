@@ -181,23 +181,36 @@ body {
 
 .arrow {
     position: absolute;
-    background: none;
     z-index: 5;
-    transform-origin: center;
 }
 
 .arrow::before {
     content: '';
     position: absolute;
-    width: 0;
-    height: 0;
+    width: 100%;
+    height: 2px;
+    background: repeating-linear-gradient(to right, currentColor 0, currentColor 3px, transparent 3px, transparent 6px);
+    bottom: 100%;
+    left: 0;
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2));
 }
 
+.arrow::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 5px solid currentColor;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    bottom: -3px;
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2));
+
 .arrow-groom {
-    top: -30px;
-    left: -90px;
-    width: 110px;
-    height: 60px;
+    top: 0;
+    left: -95px;
+    width: 85px;
+    height: 40px;
     color: #d32f2f;
 }
 
@@ -209,16 +222,15 @@ body {
     background: repeating-linear-gradient(to right, #d32f2f 0, #d32f2f 3px, transparent 3px, transparent 6px);
     top: 50%;
     left: 0;
-    border-radius: 50%;
-    transform: scaleY(3) translateY(-50%);
+    transform: translateY(-50%);
     filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2));
 }
 
 .arrow-bride {
-    bottom: -30px;
-    right: -90px;
-    width: 110px;
-    height: 60px;
+    bottom: 0;
+    right: -95px;
+    width: 85px;
+    height: 40px;
     color: #c2185b;
 }
 
@@ -230,8 +242,7 @@ body {
     background: repeating-linear-gradient(to right, #c2185b 0, #c2185b 3px, transparent 3px, transparent 6px);
     bottom: 50%;
     left: 0;
-    border-radius: 50%;
-    transform: scaleY(-3) translateY(50%);
+    transform: translateY(50%);
     filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2));
 }
 
@@ -493,6 +504,45 @@ body {
         width: 150px;
         height: 220px;
     }
+
+    .couple-photos {
+        gap: 30px;
+        min-height: 300px;
+    }
+
+    .photo::before {
+        width: 65px;
+        height: 30px;
+        top: -12px;
+        left: 3px;
+    }
+
+    .photo::after {
+        width: 65px;
+        height: 30px;
+        bottom: -12px;
+        right: 3px;
+    }
+
+    .groom-label {
+        top: -45px;
+        left: -100px;
+    }
+
+    .bride-label {
+        bottom: -45px;
+        right: -100px;
+    }
+
+    .arrow-groom {
+        left: -85px;
+        width: 75px;
+    }
+
+    .arrow-bride {
+        right: -85px;
+        width: 75px;
+    }
     
     .timeline-item {
         font-size: 1rem;
@@ -526,5 +576,66 @@ body {
     .couple-photos {
         flex-direction: column;
         align-items: center;
+        gap: 20px;
+        min-height: auto;
+        margin-top: 20px;
     }
+
+    .photo {
+        width: 140px;
+        height: 190px;
+        padding: 8px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .photo::before {
+        width: 55px;
+        height: 25px;
+        top: -10px;
+        left: 2px;
+    }
+
+    .photo::after {
+        width: 55px;
+        height: 25px;
+        bottom: -10px;
+        right: 2px;
+    }
+
+    .photo-wrapper:first-child {
+        margin-top: 0;
+    }
+
+    .photo-wrapper:last-child {
+        margin-top: 0;
+    }
+
+    .name-label {
+        font-size: 1rem;
+    }
+
+    .groom-label {
+        top: -40px;
+        left: -80px;
+    }
+
+    .bride-label {
+        bottom: -40px;
+        right: -80px;
+    }
+
+    .arrow-groom {
+        top: 0;
+        left: -70px;
+        width: 65px;
+        height: 30px;
+    }
+
+    .arrow-bride {
+        bottom: 0;
+        right: -70px;
+        width: 65px;
+        height: 30px;
+    }
+}
 }
