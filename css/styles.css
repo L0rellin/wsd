@@ -104,6 +104,18 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+.story-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.story-section p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin: 20px 0;
+}
+
 .welcome-title {
     font-family: 'Marck Script', cursive;
     font-size: 3rem;
@@ -571,6 +583,10 @@ body {
     .date-main p {
         font-size: 1rem;
     }
+
+    .story-section p {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -663,6 +679,11 @@ body {
     .date-main p {
         font-size: 0.9rem;
         margin: 8px 0;
+    }
+
+    .story-section p {
+        font-size: 0.9rem;
+        margin: 15px 0;
     }
 }
 }
