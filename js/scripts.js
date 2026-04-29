@@ -22,11 +22,11 @@ function initMaps() {
     ymaps.ready(function () {
         try {
             const mapRegistration = new ymaps.Map('map-registration', {
-                center: [55.751574, 37.617734], // Пример координат — заменить на реальные
+                center: [55.616919, 37.695445], // Точные координаты регистрации
                 zoom: 16
             });
             
-            const placemarkRegistration = new ymaps.Placemark([55.751574, 37.617734], {
+            const placemarkRegistration = new ymaps.Placemark([55.616919, 37.695445], {
                 hintContent: 'Место регистрации',
                 balloonContent: 'Архитектурный комплекс "Белый Зал"'
             });
@@ -41,11 +41,11 @@ function initMaps() {
     ymaps.ready(function () {
         try {
             const mapBanquet = new ymaps.Map('map-banquet', {
-                center: [55.755819, 37.617633], // Пример координат — заменить на реальные
+                center: [55.689511, 37.675153], // Точные координаты банкета
                 zoom: 16
             });
             
-            const placemarkBanquet = new ymaps.Placemark([55.755819, 37.617633], {
+            const placemarkBanquet = new ymaps.Placemark([55.689511, 37.675153], {
                 hintContent: 'Место банкета',
                 balloonContent: 'Ресторан "Сады Эдема"'
             });
