@@ -207,7 +207,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeSlide 12s ease-in-out infinite;
+    animation: fadeSlide 8s ease-in-out infinite;
     animation-fill-mode: both;
 }
 
@@ -216,23 +216,19 @@ body {
 }
 
 .carousel-slide:nth-child(2) {
-    animation-delay: 4s;
+    animation-delay: 2.6s;
 }
 
 .carousel-slide:nth-child(3) {
-    animation-delay: 8s;
+    animation-delay: 5.2s;
 }
 
 @keyframes fadeSlide {
-    0%, 24% {
+    0%, 30% {
         opacity: 1;
         transform: scale(1);
     }
-    28% {
-        opacity: 0;
-        transform: scale(0.96);
-    }
-    100% {
+    35%, 100% {
         opacity: 0;
         transform: scale(0.96);
     }
@@ -352,19 +348,21 @@ body {
     display: inline-block;
 }
 
-.name-label {
-    font-family: 'Marck Script', cursive;
-    font-size: 1.7rem;
-    position: absolute;
-    background: transparent;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
-    backdrop-filter: none;
-    font-weight: normal;
-    white-space: nowrap;
-    z-index: 5;
-    color: #333;
+.welcome-intro {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #4a3a2a;
+    text-align: center;
+    margin: 0 auto 20px;
+    max-width: 80%;
+    padding: 12px 18px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+    z-index: 20;
+    position: relative;
 }
 
 .groom-label {
