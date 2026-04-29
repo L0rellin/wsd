@@ -1,4 +1,14 @@
 /* Общие стили */
+:root {
+    --primary-white: #ffffff;
+    --accent-beige: #f8f3eb;
+    --accent-pink: #f4e6e7;
+    --accent-blue: #e6f0f4;
+    --accent-cream: #fdf9f0;
+    --text-dark: #333333;
+    --border-light: #e0e0e0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -24,6 +34,19 @@ body {
     padding: 20px;
 }
 
+.section {
+    padding: 80px 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Приветственный блок */
 .welcome-section {
     background: linear-gradient(135deg, rgba(248, 243, 235, 0.8), rgba(253, 249, 240, 0.8));
@@ -32,13 +55,35 @@ body {
     padding: 60px 20px;
 }
 
-@media (max-width: 600px) {
-    .welcome-section {
-        padding: 40px 16px; /* Меньше отступы на моб. */
-    }
+.welcome-intro {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #4a3a2a;
+    text-align: center;
+    margin: 0 auto 20px;
+    max-width: 80%;
+    padding: 12px 18px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+    z-index: 20;
+    position: relative;
 }
 
-/* КАРУСЕЛЬ — исправлена задержка первого слайда */
+/* Карусель — каждый слайд виден 4 секунды, затем 2 секунды анимации смены */
+.header-img-block.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    min-height: 230px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
 .carousel-slide {
     position: absolute;
     inset: 0;
@@ -46,26 +91,30 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 1s ease-in-out, transform 1s ease;
-    animation: fadeSlide 9s ease-in-out infinite; /* Длительность анимации */
+    animation: slideShow 12s ease-in-out infinite;
+    animation-fill-mode: both;
 }
 
-.carousel-slide:nth-child(1) {
-    animation-delay: 0s; /* Первый слайд без задержки */
-}
-.carousel-slide:nth-child(2) {
-    animation-delay: 3s; /* Остальные — с задержкой */
-}
-.carousel-slide:nth-child(3) {
-    animation-delay: 6s;
-}
+/* Правильные задержки для цикла из 3 слайдов */
+.carousel-slide:nth-child(1) { animation-delay: -8s; }
+.carousel-slide:nth-child(2) { animation-delay: -4s; }
+.carousel-slide:nth-child(3) { animation-delay: 0s; }
 
-@keyframes fadeSlide {
-    0%, 33% {
+@keyframes slideShow {
+    /* 0–33.3% = 4 секунды — слайд полностью виден (статично) */
+    0%, 33.3% {
         opacity: 1;
         transform: scale(1);
     }
-    33%, 100% {
+
+    /* 33.3%–50% = 2 секунды — плавное исчезновение (анимация смены) */
+    33.3%, 50% {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    /* 50%–100% — слайд неактивен */
+    50%, 100% {
         opacity: 0;
         transform: scale(0.96);
     }
@@ -75,19 +124,25 @@ body {
     width: 280px;
     height: 210px;
     border-radius: 12px;
+    object-fit: cover;
 }
 
 .carousel-slide img {
     border-radius: 12px;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
+/* Адаптивность карусели */
 @media (max-width: 768px) {
     .first-img {
         width: 240px;
         height: 180px;
     }
 }
+
 @media (max-width: 480px) {
     .first-img {
         width: 200px;
@@ -95,7 +150,168 @@ body {
     }
 }
 
-/* КАЛЕНДАРЬ — исправлен съезжающий блок */
+.story-section {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.story-section p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: #4a3a2a;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.welcome-title {
+    font-family: 'Marck Script', cursive;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #523c2f;
+}
+
+.couple-photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+    position: relative;
+    min-height: 350px;
+}
+
+.photo {
+    width: 170px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: var(--primary-white);
+    padding: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25), 0 5px 15px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8);
+    display: block;
+    position: relative;
+    transform-origin: center;
+    z-index: 10;
+}
+
+.photo::before {
+    display: none;
+}
+
+.photo::after {
+    display: none;
+}
+
+.couple-photos img:first-child {
+    transform: rotate(-6deg);
+}
+
+.couple-photos img:last-child {
+    transform: rotate(6deg);
+}
+
+.couple-photos img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.couple-photos img:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.photo-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.groom-label {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Marck Script', cursive;
+    font-size: 1.8rem;
+    color: #1e3c72;
+    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.bride-label {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Marck Script', cursive;
+    font-size: 1.8rem;
+    color: #8b1a5f;
+    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* Мобильная верстка для имён */
+@media (max-width: 600px) {
+    .groom-label {
+        top: auto;
+        bottom: -45px;
+        left: 50%;
+        right: auto;
+        font-size: 1.5rem;
+        transform: translateX(-50%);
+        color: #1e3c72;
+        text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+    }
+
+    .bride-label {
+        bottom: -45px;
+        right: auto;
+        left: 50%;
+        top: auto;
+        font-size: 1.5rem;
+        transform: translateX(-50%);
+        color: #8b1a5f;
+        text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 480px) {
+    .groom-label {
+        top: auto;
+        bottom: -40px;
+        left: 50%;
+        right: auto;
+        font-size: 1.3rem;
+        transform: translateX(-50%);
+        color: #1e3c72;
+        text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+    }
+
+    .bride-label {
+        bottom: -40px;
+        right: auto;
+        left: 50%;
+        top: auto;
+        font-size: 1.3rem;
+        transform: translateX(-50%);
+        color: #8b1a5f;
+        text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+    }
+}
+
+/* === БЛОК ДАТЫ — заголовок строго над календарём, по центру === */
 .date-section {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
@@ -106,98 +322,407 @@ body {
 }
 
 .calendar-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    max-width: 100%;
+}
+
+.calendar-title {
+    font-family: 'Marck Script', cursive;
+    font-size: 1.8rem;
+    color: #6b4423;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    display: block;
+    text-align: center;
 }
 
 .calendar {
     background: white;
     border-radius: 15px;
-    padding: 15px; /* Меньше паддинг на моб. */
+    padding: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    display: block; /* Блочный элемент для стабильности */
+    display: inline-block;
     width: 100%;
-    max-width: 280px; /* Ограничение ширины */
+    max-width: 280px;
+    min-width: 0;
 }
 
 .calendar-month-year {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
 }
 
-.calendar-weekdays,
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.calendar-weekdays span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #8c785d;
+    text-align: center;
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
 .calendar-dates {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 4px;
+    text-align: center;
 }
 
 .calendar-dates span {
-    width: 36px; /* Размер для мобильных */
+    width: 36px;
     height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    border-radius: 50%;
+    margin: 0 auto;
+    transition: all 0.2s ease;
+}
+
+.calendar-dates span:hover:not(.calendar-date-selected) {
+    background-color: var(--accent-beige);
+    transform: scale(1.05);
+    cursor: default;
+}
+
+.calendar-date-selected {
+    background: linear-gradient(135deg, #f4e6e7, #e6f0f4);
+    color: #8b1a5f;
+    font-weight: 600;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    position: relative;
+    border: 2px solid #d4c0c0;
 }
 
 .calendar-date-selected::after {
     content: '❤️';
+    font-size: 0.5em;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    animation: heartbeat 1.2s ease-in-out infinite;
+    transform-origin: center;
 }
 
-/* Адаптивность календаря */
-@media (max-width: 600px) {
-    .calendar-dates span {
-        width: 32px; /* Уменьшение на моб. */
-        height: 32px;
-        font-size: 0.85rem; /* Меньше шрифт */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.35);
+    }
+    30% {
+        transform: scale(1);
+    }
+    45% {
+        transform: scale(1.35);
+    }
+    60% {
+        transform: scale(1);
     }
 }
 
-/* Общие адаптивные правки */
-@media (max-width: 600px) {
-    .welcome-title { font-size: 2rem; }
+/* Адаптивность — mobile-first (от малого к большому) */
+@media (min-width: 481px) {
+    .date-section {
+        padding: 40px 20px;
+    }
+
+    .calendar-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .calendar {
+        padding: 20px;
+        max-width: 300px;
+    }
+
+    .calendar-month-year {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .calendar-weekdays span {
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+
+    .calendar-dates span {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .calendar-date-selected::after {
+        font-size: 0.6em;
+        top: -8px;
+        right: -8px;
+    }
 }
 
-/* Ускорение анимации на моб. для карусели */
+@media (min-width: 768px) {
+    .calendar-title {
+        font-size: 2.2rem;
+    }
+
+    .calendar {
+        max-width: 320px;
+    }
+
+    .calendar-month-year {
+        font-size: 1.4rem;
+    }
+
+    .calendar-weekdays span {
+        font-size: 0.95rem;
+    }
+
+    .calendar-dates span {
+        width: 42px;
+        height: 42px;
+        font-size: 1.05rem;
+    }
+
+    .calendar-date-selected::after {
+        font-size: 0.7em;
+        top: -9px;
+        right: -9px;
+    }
+}
+
 @media (max-width: 600px) {
-    .carousel-slide {
-        animation-duration: 6s; /* Быстрее анимация */
-        transition-duration: .5s; /* Быстрее переходы */
-        animation-timing-function: ease-in-out; /* Плавнее */
-        animation-delay:
-            nth-child(1)   { animation-delay :   0s !important; }
-            nth-child(2)   { animation-delay :   -3s !important; }
-            nth-child(3)   { animation-delay :   -6s !important; }
-            /* Остальные по аналогии */
-        ;
-        opacity:
-            nth-child(1)   { opacity :   initial !important; }
-            nth-child(2)   { opacity :   initial !important; }
-            nth-child(3)   { opacity :   initial !important; }
-            /* Остальные по аналогии */
-        ;
-        transform:
-            nth-child(1)   { transform :   scale(1) !important; }
-            nth-child(2)   { transform :   scale(1) !important; }
-            nth-child(3)   { transform :   scale(1) !important; }
-            /* Остальные по аналогии */
-        ;
-     }
-     @keyframes fadeSlide { /* Короткая анимация для моб. */
-         to { opacity : initial; transform : scale(1); }
-     }
-     .calendar { padding : calc(8px + .7vw); } /* Гибкие паддинги */
-     .calendar-dates span { min-width : calc(28px + .4vw); min-height : calc(28px + .4vw); } /* Гибкие размеры дат */
-     .countdown-item { min-width : calc(96px + .6vw); } /* Таймеры не сжимаются слишком сильно */
-     .venue h3 { font-size : calc(.9rem + .4vw); } /* Гибкий заголовок локации */
-     .venue p { font-size : calc(.9rem + .2vw); } /* Гибкий текст локации */
-     .timeline-item { font-size : calc(.9rem + .2vw); } /* Таймлайн */
-     .contact-info { font-size : calc(.9rem + .2vw); } /* Контакты */
-     .venue { padding : calc(24px + .6vw); } /* Паддинги блока локации */
-     .color-swatch { width : calc(36px + .4vw); height : calc(36px + .4vw); } /* Палитра цветов */
-     .photo,
-     .first-img { max-width : calc(24vw + 8px); } /* Фото не вылезают за экран */
-     header h1 { font-size : calc(2rem + .5vw); } /* Заголовок страницы */
-     header p { font-size : calc(.9rem + .2vw); } /* Подзаголовок страницы */
-     header a { padding : calc(6px + .4vw) calc(8px + .6vw); } /* Кнопки в шапке */
-     footer a { padding : calc(6px + .4vw) calc(8px + .6vw); } /* Кнопки в футере */
+    .welcome-section {
+        padding: 40px 16px;
+    }
+
+    .calendar {
+        padding: 12px;
+    }
+
+    .calendar-weekdays span {
+        font-size: 0.75rem;
+    }
+
+    .calendar-dates span {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Места проведения */
+.location-section {
+    background: rgba(248, 241, 229, 0.82);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.location-section h2,
+.timeline-section h2,
+.dress-code-section h2,
+.details-section h2,
+.farewell-section h2,
+.countdown-section h2 {
+    font-family: 'Marck Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #5d4e37;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.venue {
+    background: var(--primary-white);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.venue h3 {
+    font-family: 'Marck Script', cursive;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #523c2f;
+    text-align: center;
+}
+
+.venue p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #4a3a2a;
+    font-weight: 400;
+}
+
+.map {
+    height: 300px;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    margin-top: 15px;
+}
+
+/* План дня */
+.timeline-section {
+    background: rgba(248, 243, 235, 0.8);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.timeline-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: var(--primary-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    font-size: 1.2rem;
+}
+
+.time {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #523c2f;
+}
+
+.event {
+    font-family: 'Montserrat', sans-serif;
+    color: #4a3a2a;
+    font-weight: 400;
+}
+
+/* Дресс-код */
+.dress-code-section {
+    background: rgba(244, 230, 231, 0.8);
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 60px 20px;
+}
+
+.dress-code-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Цветовая палитра */
+.color-palette {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-white);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.2);
+}
+
+/* Детали */
+.details-section {
+    background: rgba(230, 240, 246, 0.8);
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 60px 20px;
+}
+
+.contact-info {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a3a2a;
+    font-weight: 400;
+}
+
+/* Заключительный блок */
+.farewell-section {
+    background: linear-gradient(135deg, rgba(248, 243, 235, 0.8), rgba(244, 230, 231, 0.8));
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 80px 20px;
+}
+
+.farewell-section p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #4a3a2a;
+    font-weight: 500;
+}
+
+/* Таймер обратного отсчёта */
+.countdown-section {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--accent-cream);
+    padding: 20px 15px;
+    border-radius: 15px;
+    min-width: 100px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.count {
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-family: 'Marck Script', cursive;
+}
+
+.label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #523c2f;
+    font-weight: 600;
+    margin-top: 8px;
 }
