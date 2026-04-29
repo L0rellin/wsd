@@ -243,15 +243,15 @@ body {
 /* Мобильная верстка для имён */
 @media (max-width: 600px) {
     .groom-label {
-        top: -35px;
-        left: -90px;
+        top: -40px;
+        left: -50px;
         font-size: 1.3rem;
         transform: rotate(-8deg);
     }
 
     .bride-label {
         bottom: -40px;
-        right: -90px;
+        right: -50px;
         font-size: 1.3rem;
         transform: rotate(8deg);
     }
@@ -259,15 +259,15 @@ body {
 
 @media (max-width: 480px) {
     .groom-label {
-        top: -30px;
-        left: -70px;
+        top: -38px;
+        left: -45px;
         font-size: 1.1rem;
         transform: rotate(-5deg);
     }
 
     .bride-label {
-        bottom: -35px;
-        right: -70px;
+        bottom: -38px;
+        right: -45px;
         font-size: 1.1rem;
         transform: rotate(5deg);
     }
