@@ -22,8 +22,6 @@ body {
     background-size: 80%; /* Размер одного фрагмента узора — можно подстроить под дизайн */
     background-position: center center; /* Центрирование изображения */
     background-repeat: repeat; /* Повторяет узор по всему экрану */
-    
-    
     background-color: #f8f3eb; /* Фоновый цвет «под» узором — бежевый, как в вашей теме */
     color: var(--text-dark);
     line-height: 1.6;
@@ -208,6 +206,7 @@ body {
     font-weight: normal;
     white-space: nowrap;
     z-index: 5;
+    color: #333;
 }
 
 .groom-label {
@@ -224,91 +223,176 @@ body {
     color: #8b1a5f;
 }
 
-.arrow {
-    position: absolute;
-    z-index: 5;
-}
-
-.arrow-groom {
-    position: absolute;
-    top: 0;
-    left: -85px;
-    width: 80px;
-    height: 2px;
-    background: repeating-linear-gradient(to right, #1e3c72 0, #1e3c72 4px, transparent 4px, transparent 8px);
-    color: #1e3c72;
-    filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2));
-}
-
-.arrow-groom::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 6px solid #1e3c72;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    right: -6px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.arrow-bride {
-    position: absolute;
-    top: -70px;
-    left: -85px;
-    width: 80px;
-    height: 2px;
-    background: repeating-linear-gradient(to left, #8b1a5f 0, #8b1a5f 4px, transparent 4px, transparent 8px);
-    color: #8b1a5f;
-    filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2));
-}
-
-.arrow-bride::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-right: 6px solid #8b1a5f;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    left: -6px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-/* Календарь */
+/* === КАЛЕНДАРЬ — mobile-first, стабильный и красивый с выделением даты === */
 .date-section {
     background: var(--primary-white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 300px;
-    border: 2px solid var(--border-light);
     border-radius: 20px;
     margin: 20px 0;
+    padding: 40px 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.calendar-container {
+    display: inline-block;
+    max-width: 100%;
+}
+
+.calendar-title {
+    font-family: 'Marck Script', cursive;
+    font-size: 1.8rem;
+    color: #6b4423;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .calendar {
-    text-align: center;
-    font-family: 'Marck Script', cursive;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: inline-block;
+    width: 100%;
+    max-width: 280px;
+    min-width: 240px;
 }
 
-.calendar-date {
-    font-size: 5rem;
+.calendar-month-year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-dark);
+    margin-bottom: 12px;
 }
 
-.calendar-month {
-    font-size: 2rem;
-    color: var(--accent-pink);
-    margin: 10px 0;
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 8px;
 }
 
-.calendar-year {
-    font-size: 1.5rem;
-    color: var(--accent-blue);
+.calendar-weekdays span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #8c785d;
+    text-align: center;
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+}
+
+.calendar-dates span {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    border-radius: 50%;
+    margin: 0 auto;
+    transition: all 0.2s ease;
+}
+
+.calendar-dates span:hover:not(.calendar-date-selected) {
+    background-color: var(--accent-beige);
+    transform: scale(1.05);
+    cursor: default;
+}
+
+.calendar-date-selected {
+    background: linear-gradient(135deg, #f4e6e7, #e6f0f4);
+    color: #8b1a5f;
+    font-weight: 600;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    position: relative;
+    border: 2px solid #d4c0c0;
+}
+
+.calendar-date-selected::after {
+    content: '❤️';
+    font-size: 0.5em;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+}
+
+/* Адаптивность — mobile-first (от малого к большому) */
+@media (min-width: 481px) {
+    .date-section {
+        padding: 40px 20px;
+    }
+
+    .calendar-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .calendar {
+        padding: 20px;
+        max-width: 300px;
+    }
+
+    .calendar-month-year {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .calendar-weekdays span {
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+
+    .calendar-dates span {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .calendar-date-selected::after {
+        font-size: 0.6em;
+        top: -8px;
+        right: -8px;
+    }
+}
+
+@media (min-width: 768px) {
+    .calendar-title {
+        font-size: 2.2rem;
+    }
+
+    .calendar {
+        max-width: 320px;
+    }
+
+    .calendar-month-year {
+        font-size: 1.4rem;
+    }
+
+    .calendar-weekdays span {
+        font-size: 0.95rem;
+    }
+
+    .calendar-dates span {
+        width: 42px;
+        height: 42px;
+        font-size: 1.05rem;
+    }
+
+    .calendar-date-selected::after {
+        font-size: 0.7em;
+        top: -9px;
+        right: -9px;
+    }
 }
 
 /* Места проведения */
@@ -388,7 +472,7 @@ body {
 
 .time {
     font-weight: 600;
-    color: var(--accent-pink);
+    color: #523c2f;
 }
 
 .event {
@@ -423,6 +507,28 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
+/* Цветовая палитра */
+.color-palette {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-white);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.2);
+}
+
 /* Детали */
 .details-section {
     background: var(--accent-blue);
@@ -441,6 +547,7 @@ body {
 .contact-info {
     font-size: 1.1rem;
     line-height: 1.8;
+    color: var(--text-dark);
 }
 
 /* Заключительный блок */
@@ -506,205 +613,4 @@ body {
 .label {
     font-size: 1rem;
     color: var(--accent-pink);
-    margin-top: 5px;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    .section {
-        padding: 60px 15px;
-    }
-    
-    .welcome-title {
-        font-size: 2.5rem;
-    }
-    
-    .calendar-date {
-        font-size: 4rem;
-    }
-    
-    .location-section h2,
-    .timeline-section h2,
-    .dress-code-section h2,
-    .details-section h2,
-    .farewell-section h2 {
-        font-size: 2rem;
-    }
-    
-    .photo {
-        width: 150px;
-        height: 220px;
-    }
-
-    .couple-photos {
-        gap: 30px;
-        min-height: 300px;
-    }
-
-    .photo::before {
-        width: 65px;
-        height: 30px;
-        top: -12px;
-        left: 3px;
-    }
-
-    .photo::after {
-        width: 65px;
-        height: 30px;
-        bottom: -12px;
-        right: 3px;
-    }
-
-    .groom-label {
-        top: -45px;
-        left: -100px;
-    }
-
-    .bride-label {
-        bottom: -45px;
-        right: -100px;
-    }
-
-    .arrow-groom {
-        left: -85px;
-        width: 75px;
-    }
-
-    .arrow-bride {
-        left: -85px;
-        width: 75px;
-    }
-    
-    .timeline-item {
-        font-size: 1rem;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .time {
-        margin-bottom: 10px;
-    }
-
-    .header-img {
-        width: 150px;
-        height: 220px;
-    }
-
-    .first-img {
-        width: 220px;
-        height: 150px;
-    }
-
-    .date-main p {
-        font-size: 1rem;
-    }
-
-    .story-section p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .welcome-title {
-        font-size: 2rem;
-    }
-    
-    .calendar-date {
-        font-size: 3rem;
-    }
-    
-    .calendar-month {
-        font-size: 1.5rem;
-    }
-    
-    .calendar-year {
-        font-size: 1.2rem;
-    }
-    
-    .couple-photos {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        min-height: auto;
-        margin-top: 20px;
-    }
-
-    .photo {
-        width: 140px;
-        height: 190px;
-        padding: 8px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    }
-
-    .photo::before {
-        width: 55px;
-        height: 25px;
-        top: -10px;
-        left: 2px;
-    }
-
-    .photo::after {
-        width: 55px;
-        height: 25px;
-        bottom: -10px;
-        right: 2px;
-    }
-
-    .photo-wrapper:first-child {
-        margin-top: 0;
-    }
-
-    .photo-wrapper:last-child {
-        margin-top: 0;
-    }
-
-    .name-label {
-        font-size: 1.2rem;
-    }
-
-    .groom-label {
-        top: -40px;
-        left: -80px;
-    }
-
-    .bride-label {
-        bottom: -40px;
-        right: -80px;
-    }
-
-    .arrow-groom {
-        top: 0;
-        left: -70px;
-        width: 60px;
-        height: 2px;
-    }
-
-    .arrow-bride {
-        bottom: 0;
-        left: -70px;
-        width: 60px;
-        height: 2px;
-    }
-
-    .header-img {
-        width: 140px;
-        height: 190px;
-    }
-
-    .first-img {
-        width: 190px;
-        height: 140px;
-    }
-
-    .date-main p {
-        font-size: 0.9rem;
-        margin: 8px 0;
-    }
-
-    .story-section p {
-        font-size: 0.9rem;
-        margin: 15px 0;
-    }
-}
-}
+    margin-top:
