@@ -58,6 +58,52 @@ body {
     padding: 60px 20px;
 }
 
+.all-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header {
+    text-align: center;
+    width: 100%;
+}
+
+.header-blocks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-block-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.date-main p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin: 10px 0;
+}
+
+.header-img-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
 .welcome-title {
     font-family: 'Marck Script', cursive;
     font-size: 3rem;
@@ -493,7 +539,7 @@ body {
 
     .bride-label {
         bottom: -45px;
-        left: -100px;
+        right: -100px;
     }
 
     .arrow-groom {
@@ -515,6 +561,15 @@ body {
     
     .time {
         margin-bottom: 10px;
+    }
+
+    .header-img {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .date-main p {
+        font-size: 1rem;
     }
 }
 
@@ -583,7 +638,7 @@ body {
 
     .bride-label {
         bottom: -40px;
-        left: -80px;
+        right: -80px;
     }
 
     .arrow-groom {
@@ -598,6 +653,16 @@ body {
         left: -70px;
         width: 65px;
         height: 30px;
+    }
+
+    .header-img {
+        width: 90%;
+        max-width: 250px;
+    }
+
+    .date-main p {
+        font-size: 0.9rem;
+        margin: 8px 0;
     }
 }
 }
