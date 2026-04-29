@@ -19,10 +19,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-image: url('../images/bg.jpg'); /* Путь к вашему узору (сердечки, виньетки, бумага и т.п.) */
     background-attachment: fixed; /* Фон остаётся на месте при прокрутке (эффект параллакса) */
-    background: size 80%;; /* Размер одного фрагмента узора — можно подстроить под дизайн */
-     /* Центрирование изображения */
-    background-position: center center;
-    background-repeat:repeat; /* Повторяет узор по всему экрану */
+    background-size: 80%; /* Размер одного фрагмента узора — можно подстроить под дизайн */
+    background-position: center center; /* Центрирование изображения */
+    background-repeat: repeat; /* Повторяет узор по всему экрану */
     
     
     background-color: #f8f3eb; /* Фоновый цвет «под» узором — бежевый, как в вашей теме */
