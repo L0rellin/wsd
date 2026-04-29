@@ -1,69 +1,4 @@
 /* Общие стили */
-
-
-
-.carousel-slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 1s ease-in-out, transform 1s ease;
-    animation: fadeSlide 9s ease-in-out infinite;
-    animation-fill-mode: both;
-}
-
-.carousel-slide:nth-child(1) {
-    animation-delay: 3s;
-}
-
-.carousel-slide:nth-child(2) {
-    animation-delay: 3s;
-}
-
-.carousel-slide:nth-child(3) {
-    animation-delay: 3s;
-}
-
-@keyframes fadeSlide {
-    0%, 33% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    33%, 66% {
-        opacity: 0;
-        transform: scale(0.96);
-    }
-    66%, 100% {
-        opacity: 0;
-        transform: scale(0.96);
-    }
-}
-
-.first-img {
-    width: 280px;
-    height: 210px;
-    border-radius: 12px;
-}
-
-.carousel-slide img {
-    border-radius: 12px;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-}
-
-
-
-:root {
-    --primary-white: #ffffff;
-    --accent-beige: #f8f3eb;
-    --accent-pink: #f4e6e7;
-    --accent-blue: #e6f0f4;
-    --accent-cream: #fdf9f0;
-    --text-dark: #333333;
-    --border-light: #e0e0e0;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -72,12 +7,12 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url('../images/bg.jpg'); /* Путь к вашему узору (сердечки, виньетки, бумага и т.п.) */
-    background-attachment: fixed; /* Фон остаётся на месте при прокрутке (эффект параллакса) */
-    background-size: 80%; /* Размер одного фрагмента узора — можно подстроить под дизайн */
-    background-position: center center; /* Центрирование изображения */
-    background-repeat: repeat; /* Повторяет узор по всему экрану */
-    background-color: #f8f3eb; /* Фоновый цвет «под» узором — бежевый, как в вашей теме */
+    background-image: url('../images/bg.jpg');
+    background-attachment: fixed;
+    background-size: 80%;
+    background-position: center center;
+    background-repeat: repeat;
+    background-color: #f8f3eb;
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
@@ -89,48 +24,6 @@ body {
     padding: 20px;
 }
 
-.page-intro {
-    font-family: 'Marck Script', cursive;
-    font-size: 2.4rem;
-    text-align: center;
-    margin: 0 auto 30px;
-    color: #5d2e4a;
-    max-width: 760px;
-    padding: 14px 22px;
-    background: rgba(255, 255, 255, 0.86);
-    border: 1px solid rgba(93, 46, 74, 0.15);
-    border-radius: 28px;
-    box-shadow: 0 18px 40px rgba(93, 46, 74, 0.08);
-    letter-spacing: 0.03em;
-    line-height: 1.1;
-}
-
-.intro-text {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    color: #4a3a2a;
-    line-height: 1.7;
-    margin: 0 0 16px;
-    font-weight: 500;
-    text-align: center;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.section {
-    padding: 80px 20px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Приветственный блок */
 .welcome-section {
     background: linear-gradient(135deg, rgba(248, 243, 235, 0.8), rgba(253, 249, 240, 0.8));
@@ -139,67 +32,13 @@ body {
     padding: 60px 20px;
 }
 
-.all-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+@media (max-width: 600px) {
+    .welcome-section {
+        padding: 40px 16px; /* Меньше отступы на моб. */
+    }
 }
 
-.header {
-    text-align: center;
-    width: 100%;
-}
-
-.header-blocks {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.header-block-top {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.date-main p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    color: var(--text-dark);
-    margin: 10px 0;
-}
-
-.header-img-block {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header-img {
-    width: 170px;
-    height: 230px;
-    object-fit: cover;
-    border-radius: 8px;
-    background: var(--primary-white);
-    padding: 12px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25), 0 5px 15px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8);
-    display: block;
-    position: relative;
-    transform-origin: center;
-    z-index: 10;
-}
-
-.header-img-block {
-    position: relative;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    min-height: 230px;
-}
-
+/* КАРУСЕЛЬ — исправлена задержка первого слайда */
 .carousel-slide {
     position: absolute;
     inset: 0;
@@ -207,28 +46,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeSlide 8s ease-in-out infinite;
-    animation-fill-mode: both;
+    transition: opacity 1s ease-in-out, transform 1s ease;
+    animation: fadeSlide 9s ease-in-out infinite; /* Длительность анимации */
 }
 
 .carousel-slide:nth-child(1) {
-    animation-delay: 0s;
+    animation-delay: 0s; /* Первый слайд без задержки */
 }
-
 .carousel-slide:nth-child(2) {
-    animation-delay: 2.6s;
+    animation-delay: 3s; /* Остальные — с задержкой */
 }
-
 .carousel-slide:nth-child(3) {
-    animation-delay: 5.2s;
+    animation-delay: 6s;
 }
 
 @keyframes fadeSlide {
-    0%, 30% {
+    0%, 33% {
         opacity: 1;
         transform: scale(1);
     }
-    35%, 100% {
+    33%, 100% {
         opacity: 0;
         transform: scale(0.96);
     }
@@ -245,14 +82,12 @@ body {
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
 }
 
-
 @media (max-width: 768px) {
     .first-img {
         width: 240px;
         height: 180px;
     }
 }
-
 @media (max-width: 480px) {
     .first-img {
         width: 200px;
@@ -260,199 +95,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-    .first-img {
-        width: 240px;
-        height: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .first-img {
-        width: 200px;
-        height: 150px;
-    }
-}
-
-.story-section {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.story-section p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    color: #4a3a2a;
-    margin: 20px 0;
-    font-weight: 500;
-}
-
-.welcome-title {
-    font-family: 'Marck Script', cursive;
-    font-size: 3rem;
-    margin-bottom: 30px;
-    color: #523c2f;
-}
-
-.couple-photos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    margin-top: 40px;
-    position: relative;
-    min-height: 350px;
-}
-
-.photo {
-    width: 170px;
-    height: 230px;
-    object-fit: cover;
-    border-radius: 8px;
-    background: var(--primary-white);
-    padding: 12px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25), 0 5px 15px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8);
-    display: block;
-    position: relative;
-    transform-origin: center;
-    z-index: 10;
-}
-
-.photo::before {
-    display: none;
-}
-
-.photo::after {
-    display: none;
-}
-
-.couple-photos img:first-child {
-    transform: rotate(-6deg);
-}
-
-.couple-photos img:last-child {
-    transform: rotate(6deg);
-}
-
-.couple-photos img {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.couple-photos img:hover {
-    transform: rotate(0deg) scale(1.05);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-}
-
-.photo-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.welcome-intro {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: #4a3a2a;
-    text-align: center;
-    margin: 0 auto 20px;
-    max-width: 80%;
-    padding: 12px 18px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    line-height: 1.5;
-    z-index: 20;
-    position: relative;
-}
-
-.groom-label {
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Marck Script', cursive;
-    font-size: 1.8rem;
-    color: #1e3c72;
-    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
-    white-space: nowrap;
-    margin: 0;
-    padding: 0;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-}
-
-.bride-label {
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Marck Script', cursive;
-    font-size: 1.8rem;
-    color: #8b1a5f;
-    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
-    white-space: nowrap;
-    margin: 0;
-    padding: 0;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-}
-
-/* Мобильная верстка для имён */
-@media (max-width: 600px) {
-    .groom-label {
-        top: auto;
-        bottom: -45px;
-        left: 50%;
-        right: auto;
-        font-size: 1.5rem;
-        transform: translateX(-50%);
-        color: #1e3c72;
-        text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
-        font-weight: 600;
-    }
-
-    .bride-label {
-        bottom: -45px;
-        right: auto;
-        left: 50%;
-        top: auto;
-        font-size: 1.5rem;
-        transform: translateX(-50%);
-        color: #8b1a5f;
-        text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
-        font-weight: 600;
-    }
-}
-
-@media (max-width: 480px) {
-    .groom-label {
-        top: auto;
-        bottom: -40px;
-        left: 50%;
-        right: auto;
-        font-size: 1.3rem;
-        transform: translateX(-50%);
-        color: #1e3c72;
-        text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
-        font-weight: 600;
-    }
-
-    .bride-label {
-        bottom: -40px;
-        right: auto;
-        left: 50%;
-        top: auto;
-        font-size: 1.3rem;
-        transform: translateX(-50%);
-        color: #8b1a5f;
-        text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
-        font-weight: 600;
-    }
-}
-
-/* === КАЛЕНДАРЬ — mobile-first, стабильный и красивый с выделением даты === */
+/* КАЛЕНДАРЬ — исправлен съезжающий блок */
 .date-section {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
@@ -466,436 +109,95 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 0 10px;
-}
-
-.calendar-title {
-    font-family: 'Marck Script', cursive;
-    font-size: 1.8rem;
-    color: #6b4423;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .calendar {
     background: white;
     border-radius: 15px;
-    padding: 15px;
+    padding: 15px; /* Меньше паддинг на моб. */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    display: inline-block;
+    display: block; /* Блочный элемент для стабильности */
     width: 100%;
-    max-width: 280px;
-    min-width: 0;
+    max-width: 280px; /* Ограничение ширины */
 }
 
 .calendar-month-year {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 12px;
 }
 
-.calendar-weekdays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
-    margin-bottom: 8px;
-}
-
-.calendar-weekdays span {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #8c785d;
-    text-align: center;
-    opacity: 0.9;
-    text-transform: uppercase;
-}
-
+.calendar-weekdays,
 .calendar-dates {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 4px;
-    text-align: center;
 }
 
 .calendar-dates span {
-    width: 36px;
+    width: 36px; /* Размер для мобильных */
     height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    border-radius: 50%;
-    margin: 0 auto;
-    transition: all 0.2s ease;
-}
-
-.calendar-dates span:hover:not(.calendar-date-selected) {
-    background-color: var(--accent-beige);
-    transform: scale(1.05);
-    cursor: default;
-}
-
-.calendar-date-selected {
-    background: linear-gradient(135deg, #f4e6e7, #e6f0f4);
-    color: #8b1a5f;
-    font-weight: 600;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
-    position: relative;
-    border: 2px solid #d4c0c0;
 }
 
 .calendar-date-selected::after {
     content: '❤️';
-    font-size: 0.5em;
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    animation: heartbeat 1.2s ease-in-out infinite;
-    transform-origin: center;
 }
 
-@keyframes heartbeat {
-    0%, 100% {
-        transform: scale(1);
-    }
-    15% {
-        transform: scale(1.35);
-    }
-    30% {
-        transform: scale(1);
-    }
-    45% {
-        transform: scale(1.35);
-    }
-    60% {
-        transform: scale(1);
-    }
-}
-
-/* Адаптивность — mobile-first (от малого к большому) */
-@media (min-width: 481px) {
-    .date-section {
-        padding: 40px 20px;
-    }
-
-    .calendar-title {
-        font-size: 2rem;
-        margin-bottom: 20px;
-    }
-
-    .calendar {
-        padding: 20px;
-        max-width: 300px;
-    }
-
-    .calendar-month-year {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-    }
-
-    .calendar-weekdays span {
-        font-size: 0.9rem;
-        opacity: 0.9;
-    }
-
-    .calendar-dates span {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-
-    .calendar-date-selected::after {
-        font-size: 0.6em;
-        top: -8px;
-        right: -8px;
-    }
-}
-
-@media (min-width: 768px) {
-    .calendar-title {
-        font-size: 2.2rem;
-    }
-
-    .calendar {
-        max-width: 320px;
-    }
-
-    .calendar-month-year {
-        font-size: 1.4rem;
-    }
-
-    .calendar-weekdays span {
-        font-size: 0.95rem;
-    }
-
-    .calendar-dates span {
-        width: 42px;
-        height: 42px;
-        font-size: 1.05rem;
-    }
-
-    .calendar-date-selected::after {
-        font-size: 0.7em;
-        top: -9px;
-        right: -9px;
-    }
-}
-
+/* Адаптивность календаря */
 @media (max-width: 600px) {
-    .welcome-section {
-        padding: 40px 16px;
-    }
-
-    .calendar {
-        padding: 12px;
-    }
-
-    .calendar-weekdays span {
-        font-size: 0.75rem;
-    }
-
     .calendar-dates span {
-        width: 32px;
+        width: 32px; /* Уменьшение на моб. */
         height: 32px;
-        font-size: 0.85rem;
+        font-size: 0.85rem; /* Меньше шрифт */
     }
 }
 
-/* Места проведения */
-.location-section {
-    background: rgba(248, 241, 229, 0.82);
-    border-radius: 20px;
-    margin: 20px 0;
+/* Общие адаптивные правки */
+@media (max-width: 600px) {
+    .welcome-title { font-size: 2rem; }
 }
 
-.location-section h2 {
-    font-family: 'Marck Script', cursive;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #5d4e37;
-}
-
-.venue {
-    background: var(--primary-white);
-    border-radius: 15px;
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.venue h3 {
-    font-family: 'Marck Script', cursive;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #523c2f;
-}
-
-.venue p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    color: #4a3a2a;
-    font-weight: 400;
-}
-
-.map {
-    height: 300px;
-    border-radius: 15px;
-    background-color: #f0f0f0;
-    margin-top: 15px;
-}
-
-/* План дня */
-.timeline-section {
-    background: rgba(248, 243, 235, 0.8);
-    border-radius: 20px;
-    margin: 20px 0;
-}
-
-.timeline-section h2 {
-    font-family: 'Marck Script', cursive;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #5d4e37;
-}
-
-.timeline-items {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.timeline-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 20px;
-    background: var(--primary-white);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    font-size: 1.2rem;
-}
-
-.time {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    color: #523c2f;
-}
-
-.event {
-    font-family: 'Montserrat', sans-serif;
-    color: #4a3a2a;
-    font-weight: 400;
-}
-
-/* Дресс-код */
-.dress-code-section {
-    background: rgba(244, 230, 231, 0.8);
-    border-radius: 20px;
-    margin: 20px 0;
-    padding: 60px 20px;
-}
-
-.dress-code-section h2 {
-    font-family: 'Marck Script', cursive;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #5d2e4a;
-}
-
-.dress-code-section p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #4a3a2a;
-    font-weight: 400;
-}
-
-.dress-code-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Цветовая палитра */
-.color-palette {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.color-swatch {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid var(--primary-white);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
-}
-
-.color-swatch:hover {
-    transform: scale(1.2);
-}
-
-/* Детали */
-.details-section {
-    background: rgba(230, 240, 246, 0.8);
-    border-radius: 20px;
-    margin: 20px 0;
-    padding: 60px 20px;
-}
-
-.details-section h2 {
-    font-family: 'Marck Script', cursive;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #3a4b5c;
-}
-
-.contact-info {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #4a3a2a;
-    font-weight: 400;
-}
-
-/* Заключительный блок */
-.farewell-section {
-    background: linear-gradient(135deg, rgba(248, 243, 235, 0.8), rgba(244, 230, 231, 0.8));
-    border-radius: 20px;
-    margin: 20px 0;
-    padding: 80px 20px;
-}
-
-.farewell-section h2 {
-    font-family: 'Marck Script', cursive;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #5d2e4a;
-}
-
-.farewell-section p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.3rem;
-    font-style: italic;
-    color: #4a3a2a;
-    font-weight: 500;
-}
-
-/* Таймер обратного отсчёта */
-.countdown-section {
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
-    margin: 20px 0;
-}
-
-.countdown-section h2 {
-    font-family: 'Marck Script', cursive;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #5d2e4a;
-}
-
-.countdown-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.countdown-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--accent-cream);
-    padding: 20px 15px;
-    border-radius: 15px;
-    min-width: 100px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.count {
-    font-size: 3rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    font-family: 'Marck Script', cursive;
-}
-
-.label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    color: #523c2f;
-    font-weight: 600;
-    margin-top: 8px;
+/* Ускорение анимации на моб. для карусели */
+@media (max-width: 600px) {
+    .carousel-slide {
+        animation-duration: 6s; /* Быстрее анимация */
+        transition-duration: .5s; /* Быстрее переходы */
+        animation-timing-function: ease-in-out; /* Плавнее */
+        animation-delay:
+            nth-child(1)   { animation-delay :   0s !important; }
+            nth-child(2)   { animation-delay :   -3s !important; }
+            nth-child(3)   { animation-delay :   -6s !important; }
+            /* Остальные по аналогии */
+        ;
+        opacity:
+            nth-child(1)   { opacity :   initial !important; }
+            nth-child(2)   { opacity :   initial !important; }
+            nth-child(3)   { opacity :   initial !important; }
+            /* Остальные по аналогии */
+        ;
+        transform:
+            nth-child(1)   { transform :   scale(1) !important; }
+            nth-child(2)   { transform :   scale(1) !important; }
+            nth-child(3)   { transform :   scale(1) !important; }
+            /* Остальные по аналогии */
+        ;
+     }
+     @keyframes fadeSlide { /* Короткая анимация для моб. */
+         to { opacity : initial; transform : scale(1); }
+     }
+     .calendar { padding : calc(8px + .7vw); } /* Гибкие паддинги */
+     .calendar-dates span { min-width : calc(28px + .4vw); min-height : calc(28px + .4vw); } /* Гибкие размеры дат */
+     .countdown-item { min-width : calc(96px + .6vw); } /* Таймеры не сжимаются слишком сильно */
+     .venue h3 { font-size : calc(.9rem + .4vw); } /* Гибкий заголовок локации */
+     .venue p { font-size : calc(.9rem + .2vw); } /* Гибкий текст локации */
+     .timeline-item { font-size : calc(.9rem + .2vw); } /* Таймлайн */
+     .contact-info { font-size : calc(.9rem + .2vw); } /* Контакты */
+     .venue { padding : calc(24px + .6vw); } /* Паддинги блока локации */
+     .color-swatch { width : calc(36px + .4vw); height : calc(36px + .4vw); } /* Палитра цветов */
+     .photo,
+     .first-img { max-width : calc(24vw + 8px); } /* Фото не вылезают за экран */
+     header h1 { font-size : calc(2rem + .5vw); } /* Заголовок страницы */
+     header p { font-size : calc(.9rem + .2vw); } /* Подзаголовок страницы */
+     header a { padding : calc(6px + .4vw) calc(8px + .6vw); } /* Кнопки в шапке */
+     footer a { padding : calc(6px + .4vw) calc(8px + .6vw); } /* Кнопки в футере */
 }
