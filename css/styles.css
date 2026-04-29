@@ -149,7 +149,7 @@ body {
     justify-content: center;
     align-items: center;
     transition: opacity 1s ease-in-out, transform 1s ease;
-    animation: fadeSlide 12s ease-in-out infinite;
+    animation: fadeSlide 9s ease-in-out infinite;
     animation-fill-mode: both;
 }
 
@@ -158,19 +158,23 @@ body {
 }
 
 .carousel-slide:nth-child(2) {
-    animation-delay: 4s;
+    animation-delay: 3s;
 }
 
 .carousel-slide:nth-child(3) {
-    animation-delay: 8s;
+    animation-delay: 6s;
 }
 
 @keyframes fadeSlide {
-    0%, 28% {
+    0%, 33% {
         opacity: 1;
         transform: scale(1);
     }
-    34%, 100% {
+    33%, 66% {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    66%, 100% {
         opacity: 0;
         transform: scale(0.96);
     }
@@ -290,29 +294,6 @@ body {
     display: inline-block;
 }
 
-.photo-wrapper:first-child .photo {
-    animation: photoEntrance 1.2s ease-out 0.5s both;
-}
-
-.photo-wrapper:last-child .photo {
-    animation: photoEntrance 1.2s ease-out 0.8s both;
-}
-
-@keyframes photoEntrance {
-    0% {
-        opacity: 0;
-        transform: translateY(30px) rotate(-3deg);
-    }
-    50% {
-        opacity: 0.7;
-        transform: translateY(-5px) rotate(1deg);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) rotate(0deg);
-    }
-}
-
 .name-label {
     font-family: 'Marck Script', cursive;
     font-size: 1.7rem;
@@ -348,7 +329,7 @@ body {
 @media (max-width: 600px) {
     .groom-label {
         top: auto;
-        bottom: -38px;
+        bottom: -45px;
         left: 50%;
         right: auto;
         font-size: 1.5rem;
@@ -359,7 +340,7 @@ body {
     }
 
     .bride-label {
-        bottom: -38px;
+        bottom: -45px;
         right: auto;
         left: 50%;
         top: auto;
@@ -374,7 +355,7 @@ body {
 @media (max-width: 480px) {
     .groom-label {
         top: auto;
-        bottom: -34px;
+        bottom: -40px;
         left: 50%;
         right: auto;
         font-size: 1.3rem;
@@ -385,7 +366,7 @@ body {
     }
 
     .bride-label {
-        bottom: -34px;
+        bottom: -40px;
         right: auto;
         left: 50%;
         top: auto;
