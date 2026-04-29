@@ -5,26 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Свадебное приглашение</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Marck+Script&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Подключаем шрифты: Marck Script для заголовков и имён, Montserrat для основного текста -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Marck+Script&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <!-- Приветственный блок -->
         <section id="welcome" class="section welcome-section">
-            <!-- Первый блок: фото пары со стрелками и именами -->
+            <!-- Первый блок: фото пары с именами -->
             <div class="couple-photos">
+                <!-- Фото жениха -->
                 <div class="photo-wrapper">
-                    <img src="images/placeholder1.jpg" alt="Фото жениха" class="photo">
+                    <img src="images/placeholder1.jpg" alt="Жених" class="photo">
                     <div class="name-label groom-label">Дима</div>
-                    <div class="arrow arrow-groom"></div>
                 </div>
+
+                <!-- Фото невесты -->
                 <div class="photo-wrapper">
-                    <img src="images/placeholder2.jpg" alt="Фото невесты" class="photo">
+                    <img src="images/placeholder2.jpg" alt="Невеста" class="photo">
                     <div class="name-label bride-label">Катя</div>
-                    <div class="arrow arrow-bride"></div>
                 </div>
             </div>
-            
+
             <!-- Второй блок: текст и изображение -->
             <div class="story-section">
                 <p>Невероятно, но они выросли...</p>
@@ -37,73 +39,139 @@
 
         <!-- Блок с датой -->
         <section id="date" class="section date-section">
-            <div class="calendar">
-                <div class="calendar-date">15</div>
-                <div class="calendar-month">мая</div>
-                <div class="calendar-year">2026</div>
+            <div class="calendar-container">
+                <h2 class="calendar-title">Свадебная дата</h2>
+                <div class="calendar">
+                    <div class="calendar-month-year">Май 2026</div>
+                    <div class="calendar-weekdays">
+                        <span>Пн</span>
+                        <span>Вт</span>
+                        <span>Ср</span>
+                        <span>Чт</span>
+                        <span>Пт</span>
+                        <span>Сб</span>
+                        <span>Вс</span>
+                    </div>
+                    <div class="calendar-dates">
+                        <!-- Пустые ячейки до 1 мая (четверг) -->
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <!-- Даты месяца -->
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                        <span>6</span>
+                        <span>7</span>
+                        <span>8</span>
+                        <span>9</span>
+                        <span>10</span>
+                        <span>11</span>
+                        <span>12</span>
+                        <span>13</span>
+                        <span>14</span>
+                        <span class="calendar-date-selected">15</span>
+                        <span>16</span>
+                        <span>17</span>
+                        <span>18</span>
+                        <span>19</span>
+                        <span>20</span>
+                        <span>21</span>
+                        <span>22</span>
+                        <span>23</span>
+                        <span>24</span>
+                        <span>25</span>
+                        <span>26</span>
+                        <span>27</span>
+                        <span>28</span>
+                        <span>29</span>
+                        <span>30</span>
+                        <span>31</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Блок "Где?" -->
+        <!-- Места проведения -->
         <section id="location" class="section location-section">
             <h2>Где пройдёт торжество?</h2>
-            
+
             <div class="venue">
                 <h3>Торжественная регистрация</h3>
-                <p>Архитектурный комплекс "Белый Зал", ул. Центральная, 10</p>
+                <p>Шипиловский пр-д, 27, Москва, 115569</p>
                 <div id="map-registration" class="map"></div>
             </div>
-            
+
             <div class="venue">
                 <h3>Праздничный банкет</h3>
-                <p>Ресторан "Сады Эдема", Парковая аллея, 5</p>
+                <p>просп. Андропова, 11, корп. 2, Москва</p>
                 <div id="map-banquet" class="map"></div>
             </div>
         </section>
 
-        <!-- Блок плана дня -->
+        <!-- План дня -->
         <section id="timeline" class="section timeline-section">
             <h2>План дня</h2>
             <div class="timeline-items">
                 <div class="timeline-item">
-                    <span class="time">14:00</span>
-                    <span class="event">Регистрация</span>
+                    <span class="time">14:30–15:30</span>
+                    <span class="event">Фото в саду молодожёнов</span>
                 </div>
                 <div class="timeline-item">
-                    <span class="time">14:30</span>
-                    <span class="event">Фотосессия</span>
+                    <span class="time">15:30–16:00</span>
+                    <span class="event">Сбор гостей около ЗАГСа</span>
                 </div>
                 <div class="timeline-item">
-                    <span class="time">16:00</span>
-                    <span class="event">Банкет</span>
+                    <span class="time">16:00–17:00</span>
+                    <span class="event">Церемония в ЗАГСе</span>
                 </div>
                 <div class="timeline-item">
-                    <span class="time">18:00</span>
-                    <span class="event">Танцы и развлечения</span>
+                    <span class="time">17:00–18:00</span>
+                    <span class="event">Свободное время (фото, дорога)</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">19:00–22:00</span>
+                    <span class="event">Банкет на корабле</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">22:30</span>
+                    <span class="event">Встреча с друзьями (недалеко от «Ведьмака»)</span>
                 </div>
             </div>
         </section>
 
-        <!-- Блок дресс-кода -->
+        <!-- Дресс-код -->
         <section id="dress-code" class="section dress-code-section">
             <h2>Дресс-код</h2>
             <p>Поддержите атмосферу праздника, выбрав наряд в наших любимых оттенках</p>
-            <img src="images/dress-code.jpg" alt="Примеры нарядов и цветов" class="dress-code-image">
+            <img src="images/dress.png" alt="Примеры нарядов и цветов" class="dress-code-image">
+
+            <!-- Цветовая палитра -->   
+            <div class="color-palette">
+                <div class="color-swatch" style="background-color: #523c2f;" title="Коричневый"></div>
+                <div class="color-swatch" style="background-color: #dacdbd;" title="Бежевый"></div>
+                <div class="color-swatch" style="background-color: #f9dae0;" title="Розовый"></div>
+                <div class="color-swatch" style="background-color: #d2e8f6;" title="Голубой"></div>
+            </div>
         </section>
 
-        <!-- Блок деталей -->
+        <!-- Детали -->
         <section id="details" class="section details-section">
             <h2>Детали</h2>
             <div class="contact-info">
-                <p>Контакты: +7 (XXX) XXX-XX-XX | wedding@example.com</p>
-                <p>Парковка доступна у обоих venues. Трансфер от регистрации до банкета будет организован.</p>
+                <p>Пожалуйста, обратите внимание на время прихода и заранее сообщите нам, если у вас возникнут вопросы.</p>
+                <p>Не забудьте сообщить нам, если вам нужна помощь с транспортом или размещением.</p>
+                <p>Мы будем рады видеть вас в нашем любимом месте, которое особенно важно для нас.</p>
             </div>
         </section>
 
         <!-- Заключительный блок -->
         <section id="farewell" class="section farewell-section">
             <h2>До встречи на нашем празднике!</h2>
-            <p>С любовью, [Имена молодожёнов]</p>
+            <p>С любовью, Дима и Катя</p>
         </section>
 
         <!-- Таймер обратного отсчёта -->
