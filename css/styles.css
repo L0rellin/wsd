@@ -366,19 +366,37 @@ body {
 }
 
 .groom-label {
-    top: -50px;
-    left: -120px;
-    transform: rotate(-12deg);
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Marck Script', cursive;
+    font-size: 1.8rem;
     color: #1e3c72;
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .bride-label {
-    bottom: -60px;
-    right: -120px;
-    transform: rotate(12deg);
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Marck Script', cursive;
+    font-size: 1.8rem;
     color: #8b1a5f;
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 /* Мобильная верстка для имён */
