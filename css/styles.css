@@ -111,6 +111,11 @@ body {
     z-index: 10;
 }
 
+.first-img {
+    width: 230px;
+    height: 170px;
+}
+
 .story-section {
     text-align: center;
     margin-top: 40px;
@@ -251,7 +256,7 @@ body {
 
 .arrow-bride {
     position: absolute;
-    bottom: 0;
+    top: -70px;
     left: -85px;
     width: 80px;
     height: 2px;
@@ -587,6 +592,11 @@ body {
         height: 220px;
     }
 
+    .first-img {
+        width: 220px;
+        height: 150px;
+    }
+
     .date-main p {
         font-size: 1rem;
     }
@@ -681,6 +691,11 @@ body {
     .header-img {
         width: 140px;
         height: 190px;
+    }
+
+    .first-img {
+        width: 190px;
+        height: 140px;
     }
 
     .date-main p {
