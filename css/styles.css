@@ -36,10 +36,18 @@ body {
 
 .page-intro {
     font-family: 'Marck Script', cursive;
-    font-size: 2rem;
+    font-size: 2.4rem;
     text-align: center;
-    margin: 0 auto 20px;
+    margin: 0 auto 30px;
     color: #5d2e4a;
+    max-width: 760px;
+    padding: 14px 22px;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(93, 46, 74, 0.15);
+    border-radius: 28px;
+    box-shadow: 0 18px 40px rgba(93, 46, 74, 0.08);
+    letter-spacing: 0.03em;
+    line-height: 1.1;
 }
 
 .section {
@@ -128,37 +136,48 @@ body {
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: opacity 1s ease-in-out, transform 1s ease;
+    animation: fadeSlide 12s ease-in-out infinite;
+    animation-fill-mode: both;
 }
 
 .carousel-slide:nth-child(1) {
-    animation: fadeSlide 12s ease-in-out infinite;
+    animation-delay: 0s;
 }
 
 .carousel-slide:nth-child(2) {
-    animation: fadeSlide 12s ease-in-out infinite 4s;
+    animation-delay: 4s;
 }
 
 .carousel-slide:nth-child(3) {
-    animation: fadeSlide 12s ease-in-out infinite 8s;
+    animation-delay: 8s;
 }
 
 @keyframes fadeSlide {
-    0%, 25% {
+    0%, 28% {
         opacity: 1;
+        transform: scale(1);
     }
-    33%, 100% {
+    34%, 100% {
         opacity: 0;
+        transform: scale(0.96);
     }
 }
 
 .first-img {
     width: 280px;
     height: 210px;
+    border-radius: 12px;
 }
+
+.carousel-slide img {
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
 
 @media (max-width: 768px) {
     .first-img {
