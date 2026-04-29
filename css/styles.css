@@ -129,7 +129,7 @@ body {
 
 .name-label {
     font-family: 'Marck Script', cursive;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     position: absolute;
     background: transparent;
     padding: 0;
@@ -187,10 +187,10 @@ body {
 .arrow-bride {
     position: absolute;
     bottom: 0;
-    right: -85px;
+    left: -85px;
     width: 80px;
     height: 2px;
-    background: repeating-linear-gradient(to right, #8b1a5f 0, #8b1a5f 4px, transparent 4px, transparent 8px);
+    background: repeating-linear-gradient(to left, #8b1a5f 0, #8b1a5f 4px, transparent 4px, transparent 8px);
     color: #8b1a5f;
     filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2));
 }
@@ -200,10 +200,10 @@ body {
     position: absolute;
     width: 0;
     height: 0;
-    border-left: 6px solid #8b1a5f;
+    border-right: 6px solid #8b1a5f;
     border-top: 4px solid transparent;
     border-bottom: 4px solid transparent;
-    right: -6px;
+    left: -6px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -493,7 +493,7 @@ body {
 
     .bride-label {
         bottom: -45px;
-        right: -100px;
+        left: -100px;
     }
 
     .arrow-groom {
@@ -502,7 +502,7 @@ body {
     }
 
     .arrow-bride {
-        right: -85px;
+        left: -85px;
         width: 75px;
     }
     
@@ -573,7 +573,7 @@ body {
     }
 
     .name-label {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .groom-label {
@@ -583,7 +583,7 @@ body {
 
     .bride-label {
         bottom: -40px;
-        right: -80px;
+        left: -80px;
     }
 
     .arrow-groom {
@@ -595,7 +595,7 @@ body {
 
     .arrow-bride {
         bottom: 0;
-        right: -70px;
+        left: -70px;
         width: 65px;
         height: 30px;
     }
