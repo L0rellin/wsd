@@ -109,8 +109,22 @@ body {
 }
 
 .first-img {
-    width: 230px;
-    height: 170px;
+    width: 280px;
+    height: 210px;
+}
+
+@media (max-width: 768px) {
+    .first-img {
+        width: 240px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .first-img {
+        width: 200px;
+        height: 150px;
+    }
 }
 
 .story-section {
@@ -121,15 +135,16 @@ body {
 .story-section p {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
-    color: var(--text-dark);
+    color: #4a3a2a;
     margin: 20px 0;
+    font-weight: 500;
 }
 
 .welcome-title {
     font-family: 'Marck Script', cursive;
     font-size: 3rem;
     margin-bottom: 30px;
-    color: #2d1b4e;
+    color: #523c2f;
 }
 
 .couple-photos {
@@ -214,6 +229,7 @@ body {
     left: -120px;
     transform: rotate(-12deg);
     color: #1e3c72;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 .bride-label {
@@ -221,6 +237,40 @@ body {
     right: -120px;
     transform: rotate(12deg);
     color: #8b1a5f;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* Мобильная верстка для имён */
+@media (max-width: 600px) {
+    .groom-label {
+        top: -35px;
+        left: -90px;
+        font-size: 1.3rem;
+        transform: rotate(-8deg);
+    }
+
+    .bride-label {
+        bottom: -40px;
+        right: -90px;
+        font-size: 1.3rem;
+        transform: rotate(8deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .groom-label {
+        top: -30px;
+        left: -70px;
+        font-size: 1.1rem;
+        transform: rotate(-5deg);
+    }
+
+    .bride-label {
+        bottom: -35px;
+        right: -70px;
+        font-size: 1.1rem;
+        transform: rotate(5deg);
+    }
 }
 
 /* === КАЛЕНДАРЬ — mobile-first, стабильный и красивый с выделением даты === */
@@ -406,7 +456,7 @@ body {
     font-family: 'Marck Script', cursive;
     font-size: 2.5rem;
     margin-bottom: 30px;
-    color: #2d5016;
+    color: #5d4e37;
 }
 
 .venue {
@@ -422,13 +472,15 @@ body {
     font-family: 'Marck Script', cursive;
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: var(--text-dark);
+    color: #523c2f;
 }
 
 .venue p {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
     margin-bottom: 20px;
-    color: var(--text-dark);
+    color: #4a3a2a;
+    font-weight: 400;
 }
 
 .map {
@@ -449,7 +501,7 @@ body {
     font-family: 'Marck Script', cursive;
     font-size: 2.5rem;
     margin-bottom: 40px;
-    color: #6b4423;
+    color: #5d4e37;
 }
 
 .timeline-items {
@@ -471,12 +523,15 @@ body {
 }
 
 .time {
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     color: #523c2f;
 }
 
 .event {
-    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    color: #4a3a2a;
+    font-weight: 400;
 }
 
 /* Дресс-код */
@@ -491,13 +546,15 @@ body {
     font-family: 'Marck Script', cursive;
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #6b1e4f;
+    color: #5d2e4a;
 }
 
 .dress-code-section p {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
     margin-bottom: 30px;
-    color: var(--text-dark);
+    color: #4a3a2a;
+    font-weight: 400;
 }
 
 .dress-code-image {
@@ -541,13 +598,15 @@ body {
     font-family: 'Marck Script', cursive;
     font-size: 2.5rem;
     margin-bottom: 30px;
-    color: #1b4965;
+    color: #3a4b5c;
 }
 
 .contact-info {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--text-dark);
+    color: #4a3a2a;
+    font-weight: 400;
 }
 
 /* Заключительный блок */
@@ -562,13 +621,15 @@ body {
     font-family: 'Marck Script', cursive;
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #8b1a5f;
+    color: #5d2e4a;
 }
 
 .farewell-section p {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.3rem;
     font-style: italic;
-    color: var(--text-dark);
+    color: #4a3a2a;
+    font-weight: 500;
 }
 
 /* Таймер обратного отсчёта */
@@ -582,7 +643,7 @@ body {
     font-family: 'Marck Script', cursive;
     font-size: 2.5rem;
     margin-bottom: 30px;
-    color: #4a3a7f;
+    color: #5d2e4a;
 }
 
 .countdown-container {
@@ -611,6 +672,9 @@ body {
 }
 
 .label {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
-    color: var(--accent-pink);
-    margin-top:
+    color: #523c2f;
+    font-weight: 600;
+    margin-top: 8px;
+}
